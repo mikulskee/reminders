@@ -1,3 +1,9 @@
 export const theme = {
-  black: "#000",
+  colors: {
+    black: "#000",
+    white: "#fff",
+  },
+  fonts: {
+    bold: 700,
+  },
 };
