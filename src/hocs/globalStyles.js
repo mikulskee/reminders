@@ -10,4 +10,18 @@ export const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
     font-family: 'DM Sans', sans-serif;
   }
+
+  button {
+    border: none;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+ }
+  
 `;

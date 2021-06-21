@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { v4 as uuidv4 } from "uuid";
 import Input from "../UI/Input";
 import { RemindersContext } from "../../contexts/RemindersContext/RemindersContext";
+import Button from "../UI/Button";
 
 const initialValues = {
   name: "",
@@ -51,9 +52,10 @@ const fields = [
 const MainForm = () => {
   const { addReminder } = useContext(RemindersContext);
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, resetForm) => {
     values.id = uuidv4();
     addReminder(values);
+    resetForm();
   };
 
   const validationSchema = yup.object({
@@ -69,7 +71,7 @@ const MainForm = () => {
     <Wrapper>
       <Formik
         initialValues={initialValues}
-        onSubmit={handleSubmit}
+        onSubmit={(values, { resetForm }) => handleSubmit(values, resetForm)}
         validationSchema={validationSchema}
         validateOnChange={true}
       >
@@ -77,7 +79,9 @@ const MainForm = () => {
           {fields.map((field) => (
             <Input field={field} key={field.name} />
           ))}
-          <button type="submit">submit</button>
+          <Button type="submit" variant="primary">
+            Save new reminder
+          </Button>
         </FormWrapper>
       </Formik>
     </Wrapper>
