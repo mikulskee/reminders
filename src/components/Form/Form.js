@@ -41,7 +41,7 @@ const fields = [
   {
     name: "tags",
     type: "radio",
-    options: ["high", "important", "low pro"],
+    options: ["very high prio", "important", "low prio"],
   },
   {
     name: "description",

@@ -23,5 +23,9 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: inherit;
     -webkit-appearance: none;
  }
+
+ ul {
+   list-style: none;
+ }
   
 `;

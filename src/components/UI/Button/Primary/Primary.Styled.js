@@ -7,4 +7,5 @@ export const Wrapper = styled.button`
   border-radius: 20px;
   text-transform: uppercase;
   font-weight: ${({ theme }) => theme.fonts.bold};
+  margin-bottom: 10px;
 `;
