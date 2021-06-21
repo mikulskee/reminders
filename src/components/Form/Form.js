@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Formik } from "formik";
 import { Wrapper, FormWrapper } from "./Form.Styled";
-import Input from "../Input/";
 import * as yup from "yup";
+import { v4 as uuidv4 } from "uuid";
+import Input from "../Input/";
+import { RemindersContext } from "../../contexts/RemindersContext/RemindersContext";
 
 const initialValues = {
   name: "",
@@ -47,8 +49,11 @@ const fields = [
 ];
 
 const MainForm = () => {
+  const { addReminder } = useContext(RemindersContext);
+
   const handleSubmit = (values) => {
-    console.log(values);
+    values.id = uuidv4();
+    addReminder(values);
   };
 
   const validationSchema = yup.object({
