@@ -5,11 +5,14 @@ import {
   DateField,
   Tag,
   Description,
+  DeleteButton,
 } from "./ReminderCard.Styled";
 
 const ReminderCard = ({ reminder }) => {
-  console.log(reminder);
-  const { name, date, time, tags, description, category } = reminder;
+  const { name, date, time, tags, description, category, id } = reminder;
+  const handleClick = () => {
+    console.log(id);
+  };
   return (
     <Wrapper>
       <Title>{name}</Title>
@@ -22,6 +25,7 @@ const ReminderCard = ({ reminder }) => {
       <Tag>{tags}</Tag>
       <Description>{description}</Description>
       <Description>{category}</Description>
+      <DeleteButton variant="transparent" onClick={handleClick} />
     </Wrapper>
   );
 };
