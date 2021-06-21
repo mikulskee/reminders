@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  fieldset {
-    border: none;
-  }
-`;
-
 export const OptionsWrapper = styled.div`
   display: flex;
   label {

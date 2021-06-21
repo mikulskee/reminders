@@ -33,7 +33,7 @@ const fields = [
     name: "category",
     placeholder: "Category",
     type: "select",
-    options: ["", "category", "second"],
+    options: ["", "Category"],
   },
   {
     name: "tags",
@@ -66,6 +66,7 @@ const MainForm = () => {
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
+        validateOnChange={true}
       >
         <FormWrapper>
           {fields.map((field) => (

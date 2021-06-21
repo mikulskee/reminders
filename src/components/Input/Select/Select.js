@@ -1,6 +1,7 @@
 import React from "react";
 import { Field, useFormikContext } from "formik";
 import ErrorText from "../ErrorText";
+import InputWrapper from "../InputWrapper";
 
 const Select = (fieldProps) => {
   const { options, name } = fieldProps;
@@ -8,14 +9,14 @@ const Select = (fieldProps) => {
   const error = errors[name];
 
   return (
-    <div>
+    <InputWrapper>
       <Field type="select" as="select" {...fieldProps}>
         {options.map((option) => (
-          <option>{option}</option>
+          <option key={option}>{option}</option>
         ))}
       </Field>
       <ErrorText>{error}</ErrorText>
-    </div>
+    </InputWrapper>
   );
 };
 

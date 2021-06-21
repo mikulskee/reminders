@@ -1,11 +1,12 @@
 import React from "react";
 import { Field } from "formik";
-import { Wrapper, OptionsWrapper } from "./Radio.Styled";
+import { OptionsWrapper } from "./Radio.Styled";
+import InputWrapper from "../InputWrapper";
 
 const Radio = (fieldProps) => {
   const { options, name } = fieldProps;
   return (
-    <Wrapper>
+    <InputWrapper>
       <fieldset>
         <legend>{name}</legend>
         <OptionsWrapper>
@@ -17,7 +18,7 @@ const Radio = (fieldProps) => {
           ))}
         </OptionsWrapper>
       </fieldset>
-    </Wrapper>
+    </InputWrapper>
   );
 };
 
