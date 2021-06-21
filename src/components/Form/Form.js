@@ -2,6 +2,7 @@ import React from "react";
 import { Formik } from "formik";
 import { Wrapper, FormWrapper } from "./Form.Styled";
 import Input from "../Input/";
+import * as yup from "yup";
 
 const initialValues = {
   name: "",
@@ -32,7 +33,7 @@ const fields = [
     name: "category",
     placeholder: "Category",
     type: "select",
-    options: ["category"],
+    options: ["", "category", "second"],
   },
   {
     name: "tags",
@@ -50,12 +51,21 @@ const MainForm = () => {
     console.log(values);
   };
 
+  const validationSchema = yup.object({
+    name: yup.string().required(),
+    date: yup.string().required(),
+    time: yup.string().required(),
+    category: yup.string().required(),
+    tags: yup.string().required(),
+    description: yup.string().required(),
+  });
+
   return (
     <Wrapper>
       <Formik
-        validateOnChange={true}
         initialValues={initialValues}
         onSubmit={handleSubmit}
+        validationSchema={validationSchema}
       >
         <FormWrapper>
           {fields.map((field) => (

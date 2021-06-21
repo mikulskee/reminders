@@ -1,17 +1,20 @@
 import React from "react";
-import { Field } from "formik";
+import { Field, useFormikContext } from "formik";
+import ErrorText from "../ErrorText";
 
 const Select = (fieldProps) => {
-  console.log(fieldProps);
-  const { options } = fieldProps;
-  console.log(options);
+  const { options, name } = fieldProps;
+  const { errors } = useFormikContext();
+  const error = errors[name];
+
   return (
     <div>
-      <Field type="select" as="select">
+      <Field type="select" as="select" {...fieldProps}>
         {options.map((option) => (
-          <option value={option}> {option}</option>
+          <option>{option}</option>
         ))}
       </Field>
+      <ErrorText>{error}</ErrorText>
     </div>
   );
 };
