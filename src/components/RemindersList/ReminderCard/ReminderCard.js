@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { RemindersContext } from "../../../contexts/RemindersContext/RemindersContext";
 import {
   Wrapper,
   Title,
@@ -9,9 +10,11 @@ import {
 } from "./ReminderCard.Styled";
 
 const ReminderCard = ({ reminder }) => {
+  const { removeReminder } = useContext(RemindersContext);
+
   const { name, date, time, tags, description, category, id } = reminder;
   const handleClick = () => {
-    console.log(id);
+    removeReminder(id);
   };
   return (
     <Wrapper>

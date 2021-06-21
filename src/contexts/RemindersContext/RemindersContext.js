@@ -7,6 +7,12 @@ const RemindersContextProvider = (props) => {
     JSON.parse(localStorage.getItem("reminders")) || []
   );
 
+  const removeReminder = (id) => {
+    const filteredReminders = reminders.filter(
+      (reminder) => reminder.id !== id
+    );
+    setReminders(filteredReminders);
+  };
   const addReminder = (reminder) => {
     setReminders([reminder, ...reminders]);
   };
@@ -19,6 +25,7 @@ const RemindersContextProvider = (props) => {
     <RemindersContext.Provider
       value={{
         addReminder,
+        removeReminder,
         reminders,
       }}
     >

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { RemindersContext } from "../../contexts/RemindersContext/RemindersContext";
-import { Wrapper } from "./ReminderList.Styled";
+import { Wrapper, EmptyArrayInfo } from "./ReminderList.Styled";
 import ReminderCard from "./ReminderCard";
 
 const RemindersList = ({ reminders }) => {
@@ -25,7 +25,11 @@ const Container = () => {
     case !!reminderLength:
       return <RemindersList reminders={reminders} />;
     default:
-      return <h3>No new reminders</h3>;
+      return (
+        <EmptyArrayInfo>
+          <h3>No new reminders</h3>
+        </EmptyArrayInfo>
+      );
   }
 };
 export default Container;
