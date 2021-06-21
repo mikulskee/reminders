@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import { Wrapper, FormWrapper } from "./Form.Styled";
 import * as yup from "yup";
 import { v4 as uuidv4 } from "uuid";
-import Input from "../Input/";
+import Input from "../UI/Input";
 import { RemindersContext } from "../../contexts/RemindersContext/RemindersContext";
 
 const initialValues = {
