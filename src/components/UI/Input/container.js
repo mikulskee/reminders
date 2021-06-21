@@ -6,12 +6,18 @@ import TextArea from "./TextArea";
 
 const Container = (props) => {
   const { field } = props;
-  const { type } = field;
+  const { type, additonalComponent } = field;
+
   switch (type) {
     case "text":
       return <Text {...field} />;
     case "select":
-      return <Select {...field} />;
+      return (
+        <>
+          <Select {...field} />
+          <>{additonalComponent}</>
+        </>
+      );
     case "radio":
       return <Radio {...field} />;
     case "textarea":

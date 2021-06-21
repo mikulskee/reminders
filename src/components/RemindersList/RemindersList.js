@@ -8,7 +8,7 @@ const RemindersList = ({ reminders }) => {
     <Wrapper>
       <ul>
         {reminders.map((reminder) => (
-          <li>
+          <li key={reminder.id}>
             <ReminderCard key={reminder.id} reminder={reminder} />
           </li>
         ))}

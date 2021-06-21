@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const OptionsWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   label {
     display: flex;
     align-items: center;

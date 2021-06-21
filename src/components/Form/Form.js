@@ -6,57 +6,61 @@ import { v4 as uuidv4 } from "uuid";
 import Input from "../UI/Input";
 import { RemindersContext } from "../../contexts/RemindersContext/RemindersContext";
 import Button from "../UI/Button";
+import AddNewCategory from "../AddNewCategory";
 
 const initialValues = {
   name: "",
   date: "",
   time: "",
   category: "",
+  newCategory: "",
   tags: "high",
   description: "",
 };
 
-const fields = [
-  {
-    name: "name",
-    placeholder: "Reminders name",
-    type: "text",
-  },
-  {
-    name: "date",
-    placeholder: "XX/XX/XXXX",
-    type: "text",
-  },
-  {
-    name: "time",
-    placeholder: "00:00",
-    type: "text",
-  },
-  {
-    name: "category",
-    placeholder: "Category",
-    type: "select",
-    options: ["", "Category"],
-  },
-  {
-    name: "tags",
-    type: "radio",
-    options: ["very high prio", "important", "low prio"],
-  },
-  {
-    name: "description",
-    type: "textarea",
-  },
-];
-
 const MainForm = () => {
-  const { addReminder } = useContext(RemindersContext);
+  const { addReminder, reminders } = useContext(RemindersContext);
 
   const handleSubmit = (values, resetForm) => {
     values.id = uuidv4();
     addReminder(values);
     resetForm();
   };
+
+  const categories = reminders.map((item) => item.category);
+  const fields = [
+    {
+      name: "name",
+      placeholder: "Reminders name",
+      type: "text",
+    },
+    {
+      name: "date",
+      placeholder: "XX/XX/XXXX",
+      type: "text",
+    },
+    {
+      name: "time",
+      placeholder: "00:00",
+      type: "text",
+    },
+    {
+      name: "category",
+      placeholder: "Category",
+      type: "select",
+      options: categories,
+      additonalComponent: <AddNewCategory />,
+    },
+    {
+      name: "tags",
+      type: "radio",
+      options: ["very high prio", "important", "low prio"],
+    },
+    {
+      name: "description",
+      type: "textarea",
+    },
+  ];
 
   const validationSchema = yup.object({
     name: yup.string().required(),
